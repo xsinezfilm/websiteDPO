@@ -75,7 +75,7 @@ a {
   text-decoration: none;
 }
 
-img {
+.banner-img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -152,8 +152,20 @@ img {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
   transition: color .4s;
+  
+}
+.logo-image {
+    width: 100%; /* ปรับขนาดของรูปภาพให้เต็มความกว้างของพื้นที่ที่มีอยู่ */
+    max-width: 100px; /* กำหนดขนาดสูงสุดของรูปภาพเพื่อป้องกันการขยายให้เกินขนาด */
+    height: auto; /* รักษาสัดส่วนของภาพ */
+    margin: 10px 10px 10px 10px;
 }
 
+@media screen and (max-width: 1024px) {
+    .logo-image {
+        max-width:70px; /* ปรับขนาดรูปภาพเมื่อหน้าจอขนาดเล็กลง */
+    }
+}
 .nav__actions {
   display: flex;
   align-items: center;
@@ -394,4 +406,239 @@ img {
   .container {
     margin-inline: auto;
   }
+}
+
+/* 1 */
+
+
+#logo{
+    line-height: 60px;
+    margin-left: 40px;
+    display: inline-block;
+	cursor: pointer;
+	font-size: 30px;
+	font-weight: bold;
+	color: #00a7ff; /* blue */
+}
+#logo:hover{
+    color: #eef9ff; /* white */
+}
+#logo-s{
+	color: #eef9ff; /* white */
+	margin-left: 5px;
+}
+#logo:hover #logo-s{
+	color: #00a7ff; /* blue */
+}
+.sign{
+	float: right;
+	line-height: 60px;
+	margin-right: 40px;
+}
+.sign a{
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+.act{
+	border: 2px solid #fff;
+	border-radius: 50px;
+	padding: 6px 15px;
+}
+.sign a:hover{
+	color: #00a7ff; /* blue */
+	border-color: #00a7ff; /* blue */
+}
+/* /1 */
+
+/* 2 */
+.slider{
+	position: relative;
+	width: 100%;
+	background: #2c3e50; /* darckblue */
+}
+
+.myslide{
+	height: 400px;
+	display: none;
+	overflow: hidden;
+}
+
+.prev, .next{
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	font-size: 50px;
+	padding: 15px;
+	cursor: pointer;
+	color: #fff;
+	transition: 0.9s;
+	user-select: none;
+}
+.prev:hover, .next:hover{
+	color: #00a7ff; /* blue */
+}
+.next{
+	right: 0;
+}
+.dotsbox{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	bottom: 20px;
+	cursor: pointer;
+}
+.dot{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+  background-color: #fff;
+	border-radius: 50%;
+	margin: 0 10px;
+	cursor: pointer;
+}
+/* /2 */
+
+/* javascript */
+.active, .dot:hover{
+	background-color: #00a7ff; /* blue */
+}
+/* /javascript */
+
+/* muslide add fade */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 0.8}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: 0.8}
+  to {opacity: 1}
+}
+/* /muslide add fade */
+
+
+
+
+
+
+
+.container .card {
+    position: relative;
+    width: 320px;
+    height: 300px;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+
+.container .card:hover:before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.container .card:after {
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.04);
+
+}
+
+.container .card .imgBx {
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+    
+    
+
+}
+
+.container .card:hover .imgBx {
+    transform:  scale(1.1);
+    /* bug  */
+}
+
+.container .card .imgBx img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) ;
+    width: 50%;
+}
+
+.container .card .contentBx {
+    width: 100%;
+    text-align: center;
+    margin-top: 115%;
+    
+    
+}
+
+
+
+.container .card .contentBx h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #000000;
+}
+
+.container .card .contentBx .size,
+.container .card .contentBx .color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: .5s;
+    opacity: 0;
+    visibility: hidden;
+}
+.container .card .contentBx .size h3,
+.container .card .contentBx .color h3 {
+    color: white;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+.product-rec-index {
+    display: flex;
+    justify-content: space-between; /* จัดการตำแหน่งการ์ดให้กระจายเท่ากัน */
+}
+
+.product-rec-index  .card {
+    flex: 1; /* การ์ดจะขยายเต็มพื้นที่ของ container */
+    margin: 5px;
+}
+
+@media screen and (max-width: 1023px) {
+    .product-rec-index {
+        display: flex;
+        justify-content: space-between; /* จัดการตำแหน่งการ์ดให้กระจายเท่ากัน */
+        flex-wrap: wrap; /* ทำให้รายการสินค้าขึ้นไปในบรรทัดใหม่เมื่อขนาดหน้าจอลดลง */
+    }
+    
+    .product-rec-index .card {
+        flex: 0 0 50%; /* แสดงสินค้าเป็น 2 ช่องในแต่ละบรรทัดเมื่อขนาดหน้าจอลดลง */
+        max-width: 50%; /* ปรับความกว้างสูงสุดของแต่ละช่องให้เป็นครึ่งหนึ่งของหน้าจอ */
+    }
+}
+.text-index{
+    color: #000000;
+    text-align: center;
+    margin: 20px;
+    font-size: xx-large;
 }
